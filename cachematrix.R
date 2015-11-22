@@ -1,15 +1,36 @@
-## Put comments here that give an overall description of what your
-## functions do
+## The following functions compute the inverse  
+## of a given cached matrix
 
-## Write a short comment describing this function
+## Bellow is the function that cache the matrix:
 
 makeCacheMatrix <- function(x = matrix()) {
-
+  inv <- NULL
+  set <- function(x) {
+    x <<- x
+    inv <<- NULL
+  }
+  get <- function() x
+  setinverse <- function(solve) inv <<- solve(x)
+  getinverse <- function() inv
+  list(set = set, get = get,
+       setinverse = setinverse,
+       getinverse = getinverse)
+  
 }
 
 
-## Write a short comment describing this function
+## Bellow is the function that compute the inverse of the
+## cached matrix:
 
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+cacheSolve <- function(x = matrix()) {
+## Return a matrix that is the inverse of 'x'
+  inv <- listef$getinverse()
+  if(!is.null(inv)) {
+    message("getting cached data")
+    return(inv)
+  }
+  data <- listef$get()
+  inv <- solve(data)
+  listef$setinverse(inv)
+  inv
 }
