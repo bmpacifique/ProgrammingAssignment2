@@ -1,6 +1,5 @@
 ## The following functions compute the inverse  
 ## of a given cached matrix
-
 ## Bellow is the function that cache the matrix:
 
 makeCacheMatrix <- function(x = matrix()) {
