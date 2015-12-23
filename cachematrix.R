@@ -15,9 +15,7 @@ makeCacheMatrix <- function(x = matrix()) {
   list(set = set, get = get,
        setinverse = setinverse,
        getinverse = getinverse)
-  
 }
-
 
 ## Bellow is the function that compute the inverse of the
 ## cached matrix:
@@ -34,3 +32,4 @@ cacheSolve <- function(x = matrix()) {
   listef$setinverse(inv)
   inv
 }
+
